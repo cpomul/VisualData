@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#navBar{
+    height: 50px;
+    background-color: cornflowerblue;
+}
+#array-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.array-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
