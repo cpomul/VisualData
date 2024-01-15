@@ -1,16 +1,19 @@
-/*
-function linearSearch(array, num) {
-    for (let i = 0; i < array.length; i++) {
-        if (array[i] === num) {
-            return i;
-        }
-    }
-    return -1;
-}
-const numbers = [2, 4, 67, 8, 44, 6, 12];
-console.log(linearSearch(numbers, 6));*/
+
 import {ArrayCreator} from "./ArrayCreator.js";
+const pushUnordered = document.getElementById('pushUnordered');
+const pushOrdered = document.getElementById('pushOrdered');
+
 
 const arrayCreator = new ArrayCreator();
-console.log(arrayCreator.generateArray(5));
-arrayCreator.renderArray("array-container");
+
+pushOrdered.addEventListener('click', () => {
+    arrayCreator.generateArrayOrdered(100);
+    arrayCreator.renderArray("array-container");
+})
+pushUnordered.addEventListener('click' , () => {
+    arrayCreator.generateArrayUnordered(100);
+    arrayCreator.renderArray("array-container");
+})
+
+/*
+arrayCreator.renderArray("array-container");*/
