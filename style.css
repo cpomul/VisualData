@@ -39,3 +39,6 @@ body{
     height: 45px;
     text-align: center;
 }
+#searchForm{
+    display: inline-flex;
+}
