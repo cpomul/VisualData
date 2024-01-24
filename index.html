@@ -13,19 +13,26 @@
                 <button id="pushUnordered">unorderedArray</button>
                 <button id="pushOrdered">orderedArray</button>
 
-                <form id="searchForm">
+                <form id="searchFormLinear" >
+                    <label for="targetInputL">Target:</label>
+                    <input type="number" id="targetInputL" name="targetInput" required>
+                    <button type="submit" id="searchButtonL">SearchLinear</button>
+                </form>
+                <form id="searchFormBinary" >
                     <label for="targetInput">Target:</label>
-                    <input type="number" id="targetInput" name="targetInput">
-                    <button type="submit" id="searchButton">Search</button>
+                    <input type="number" id="targetInput" name="targetInput" required>
+                    <button type="submit" id="searchButtonB">SearchBinary</button>
                 </form>
 
             </div>
         </nav>
     </header>
     <main>
-        <div id="array-container">
-        </div>
+        <div id="array-container"></div>
     </main>
+    <script type="module" src="ArrayCreator.js"></script>
+    <script src="anime/anime.min.js"></script>
+    <script type="module" src="anim.js"></script>
     <script type="module" src="index.js"></script>
 </body>
 </html>
