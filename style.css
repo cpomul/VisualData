@@ -1,19 +1,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans&display=swap');
+@font-face {
+    font-family: "Whyte-book";
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+    url("./assets/Whyte-Book.ttf");
+}
+@font-face {
+    font-family: "Whyte-bold";
+    font-style: normal;
+    font-weight: 700;
+    src: local(''),
+    url("./assets/Whyte-Bold.ttf");
+}
+
+
 *{
     margin: 0;
     padding: 0;
-    font-family: 'Work Sans', sans-serif;
+    font-family: "Whyte-book", "Work Sans", "Google Sans", arial, sans-serif;
 }
 body{
-    background-color: #F2FDFF;
+    background-color: #2c2c2c;
 }
 #navBar{
     display: flex;
     height: 50px;
-    background-color: cornflowerblue;
+    background-color: #2c2c2c;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid #444444;
+    color: #ffffff;
 }
 #buttonsContainer{
-    padding-top: 10px;
+    padding: 15px;
+    margin-left: 50px;
 }
 #buttonsContainer > #pushOrdered{
     height: 30px;
@@ -22,9 +42,7 @@ body{
     height: 30px;
 }
 #Title{
-    padding-top: 10px;
-    padding-left: 10px;
-    width: 200px;
+    padding: 12px;
 }
 #array-container {
     margin-top: 100px;
@@ -34,7 +52,7 @@ body{
 }
 
 .array-item {
-    border: 1px solid #ccc;
+    border: 1px solid #2c2c2c;
     width: 45px;
     height: 45px;
     text-align: center;
@@ -42,9 +60,13 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f9f9f9;
+    background-color: #444444;
+    color: #ffffff;
 }
-#searchForm{
+#searchBinary{
+    display: inline-flex;
+}
+#searchLinear{
     display: inline-flex;
 }
 .simpleBox{
@@ -52,3 +74,5 @@ body{
     height: 50px;
     background-color: blue;
 }
+/**/
+
