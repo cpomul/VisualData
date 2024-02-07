@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <title>VisualSearch</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
     <header>
         <nav id="navBar">
             <h2 id="Title">Visual Search</h2>
             <div id="buttonsContainer">
-
                 <label for="dataStructures">Data Structure: </label>
                 <select name="" id="dataStructures">
                     <option value="">...</option>
                     <option value="ordered" id="pushOrdered">Ordered Array</option>
                     <option value="unordered" id="pushUnordered">Unordered Array</option>
+                    <option value="linkedlist" id="pushLinkedlist">Linked List</option>
                 </select>
             </div>
         </nav>
@@ -35,9 +36,11 @@
                 </form>
             </div>
             <div id="array-container"></div>
+            <div id="list-container"></div>
         </div>
     </main>
-    <script type="module" src="DataStructures/ArrayCreator.js"></script>
+    <script type="module" src="./DataStructures/LinkedList.js"></script>
+    <script type="module" src="./DataStructures/ArrayCreator.js"></script>
     <script type="module" src="index.js"></script>
 </body>
 </html>

@@ -46,15 +46,4 @@ function clearStyles(array) {
         box.style.color = '';
     }
 }
-////////////////////////
-
-import {LinkedList} from "./DataStructures/LinkedList";
-import {LinkedListNode} from "./DataStructures/LinkedList";
-
-let node1 = new LinkedListNode(1);
-let node2 = new LinkedListNode(2);
-node1.next = node2;
-let list = new LinkedList(node1);
-
-console.log(list.head.next.data);
 

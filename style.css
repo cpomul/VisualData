@@ -102,5 +102,42 @@ body{
     border: none;
     cursor: pointer;
 }
-
+#list-container{
+    display: flex;
+    margin: auto;
+}
+.listNode{
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.nodeNext{
+    width: 40px;
+    height: 40px;
+    border: 1px solid white;
+    border-left: none;
+    margin-right: 50px;
+}
+.material-symbols-outlined{
+    color: white;
+    margin-top: -13px;
+    margin-left: 15px;
+    display: flex;
+    font-size: 70px !important;
+}
+.null-paragraph{
+    color: white;
+    margin-left: 20px;
+    font-size: 20px;
+}
+.head-paragraph{
+    font-size: 20px;
+    position: absolute;
+    margin-top: 100px;
+}
 
