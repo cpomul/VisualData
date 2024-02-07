@@ -1,4 +1,3 @@
-import anime from "../anime/anime.es.js";
 
 async function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -32,15 +31,9 @@ export class ArraySearch {
         while (start <= end) {
             let mid = Math.floor((start + end) / 2);
             const box = container.children[mid];
-            //box.style.backgroundColor = 'red';
             await sleep(500);
             if (array[mid] === target) {
                 box.style.backgroundColor = 'green';
-                anime({
-                    targets: box,
-                    translateY: 134,
-                    easing: 'easeInOutExpo'
-                });
                 return mid;
             } else if (target > array[mid]) {
                 box.style.backgroundColor = 'red';

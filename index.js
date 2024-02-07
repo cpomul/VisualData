@@ -1,10 +1,7 @@
 
-import {ArrayCreator} from "./ArrayCreator.js";
-import {ArraySearch} from "./algos/ArraySearch.js";
+import {ArrayCreator} from "./DataStructures/ArrayCreator.js";
+import {ArraySearch} from "./Algorithms/ArraySearch.js";
 
-const dataStructures = document.getElementById('dataStructures');
-const pushUnordered = document.getElementById('unordered');
-const pushOrdered = document.getElementById('ordered');
 const searchFormLinear = document.getElementById('searchLinear');
 const searchFormBinary = document.getElementById('searchBinary')
 const targetInputBinary = document.getElementById('targetBinary');
@@ -25,28 +22,18 @@ searchFormBinary.addEventListener('submit', async (event) => {
     await arraySearch.binarySearch(arrayCreator.array, targetValue);
 })
 
-/*pushOrdered.addEventListener(   'click', () => {
-    arrayCreator.generateArrayOrdered(32);
-    arrayCreator.renderArray("array-container");
-
-});
-pushUnordered.addEventListener('click' , () => {
-    arrayCreator.generateArrayUnordered(32);
-    arrayCreator.renderArray("array-container");
-});*/
 let dataStructuresSelect = document.getElementById("dataStructures");
 
 dataStructuresSelect.addEventListener("change", function() {
     let selectedValue = dataStructuresSelect.value;
 
     if (selectedValue === "ordered") {
-        arrayCreator.generateArrayOrdered(32);
+        arrayCreator.generateArrayOrdered(50);
         arrayCreator.renderArray("array-container");
     } else if (selectedValue === "unordered") {
-        arrayCreator.generateArrayUnordered(32);
+        arrayCreator.generateArrayUnordered(50);
         arrayCreator.renderArray("array-container");
     } else {
-        // Handle the case where no option is selected
         console.log("No option selected");
     }
 });
@@ -57,7 +44,17 @@ function clearStyles(array) {
     for (let i = 0; i < array.length; i++) {
         const box = container.children[i];
         box.style.color = '';
-        //box.style.backgroundColor = 'cornflowerblue';
     }
 }
+////////////////////////
+
+import {LinkedList} from "./DataStructures/LinkedList";
+import {LinkedListNode} from "./DataStructures/LinkedList";
+
+let node1 = new LinkedListNode(1);
+let node2 = new LinkedListNode(2);
+node1.next = node2;
+let list = new LinkedList(node1);
+
+console.log(list.head.next.data);
 
