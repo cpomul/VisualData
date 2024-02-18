@@ -10,36 +10,22 @@
     <header>
         <nav id="navBar">
             <h2 id="Title">Visual Search</h2>
-            <div id="buttonsContainer">
-                <label for="dataStructures">Data Structure: </label>
-                <select name="" id="dataStructures">
-                    <option value="">...</option>
-                    <option value="ordered" id="pushOrdered">Ordered Array</option>
-                    <option value="unordered" id="pushUnordered">Unordered Array</option>
-                    <option value="linkedlist" id="pushLinkedlist">Linked List</option>
-                </select>
-            </div>
+            <ul id="dataStructures">
+                <li id="orderedArray">Ordered Array</li>
+                <li id="unOrderedArray">Unordered Array</li>
+                <li id="linkedList">Linked List</li>
+            </ul>
         </nav>
     </header>
     <main>
         <div id="mainContainer">
-            <div id="navContainer">
-                <form id="searchLinear" >
-                    <label for="targetLinear">Target:</label>
-                    <input type="number" id="targetLinear" name="targetInput" required>
-                    <button type="submit" id="searchButtonLinear">SearchLinear</button>
-                </form>
-                <form id="searchBinary" >
-                    <label for="targetBinary">Target:</label>
-                    <input type="number" id="targetBinary" name="targetInput" required>
-                    <button type="submit" id="searchButtonBinary">SearchBinary</button>
-                </form>
-            </div>
+            <div id="navContainer"></div>
             <div id="array-container"></div>
             <div id="list-container"></div>
         </div>
     </main>
     <script type="module" src="./DataStructures/LinkedList.js"></script>
+    <script src="./node_modules/animejs/lib/anime.min.js"></script>
     <script type="module" src="./DataStructures/ArrayCreator.js"></script>
     <script type="module" src="index.js"></script>
 </body>
