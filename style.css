@@ -86,7 +86,8 @@ body {
 
 #searchLinear,
 #searchBinary,
-#appendNodeValue{
+#appendNodeValue,
+#movePositionForm{
     margin-bottom: 20px;
 }
 
@@ -100,7 +101,7 @@ body {
 
 #targetBinary,
 #targetLinear,
-#targetNodeValue{
+#targetNodeValue {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
@@ -108,13 +109,22 @@ body {
 
 #searchButtonBinary,
 #searchButtonLinear,
-#appendValueButton{
+#appendValueButton,
+#movePositionButton{
+    margin-top: 2px;
     width: 100%;
     padding: 10px;
     background-color: #3F72AF;
     color: white;
     border: none;
     cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+#searchButtonBinary:hover,
+#searchButtonLinear:hover,
+#appendValueButton:hover,
+#movePositionButton:hover{
+    transform: scale(0.95);
 }
 
 #list-container {
@@ -162,4 +172,19 @@ body {
     position: absolute;
     margin-top: 95px;
 }
-
+.nodeCount{
+    font-size: 10px;
+    padding-top: 30px;
+}
+#queue-container {
+    width: 100vh;
+}
+.queueElement{
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

@@ -3,10 +3,12 @@ import {ArrayCreator} from "./DataStructures/ArrayCreator.js";
 import {ArraySearch} from "./Algorithms/ArraySearch.js";
 import {LinkedList} from "./DataStructures/LinkedList.js";
 import {FormGenerator} from "./DOMRenderer.js";
+import {Queue} from "./DataStructures/Queue.js"
 
 const orderedArray = document.getElementById("orderedArray");
 const unOrderedArray = document.getElementById("unOrderedArray");
 const linkedListSelector = document.getElementById("linkedList");
+const queueSelector = document.getElementById("queue");
 
 const listContainer = document.getElementById('list-container');
 const arrayContainer = document.getElementById("array-container");
@@ -14,21 +16,22 @@ const navContainer = document.getElementById("navContainer");
 const arrayCreator = new ArrayCreator();
 const arraySearch = new ArraySearch();
 const linkedList = new LinkedList();
+const queue = new Queue();
 
-const searchLinearForm = new FormGenerator('searchLinear', 'Target:', 'targetLinear', 'searchButtonLinear', 'SearchLinear');
+const searchLinearForm = new FormGenerator('searchLinear', 'Target', 'targetLinear', 'searchButtonLinear', 'SearchLinear');
 const searchLinearFormElement = searchLinearForm.createFormSingleInput();
-const searchBinaryForm = new FormGenerator('searchBinary', 'Target:', 'targetBinary', 'searchButtonBinary', 'SearchBinary');
+const searchBinaryForm = new FormGenerator('searchBinary', 'Target', 'targetBinary', 'searchButtonBinary', 'SearchBinary');
 const searchBinaryFormElement = searchBinaryForm.createFormSingleInput();
-const appendNodeValueForm = new FormGenerator('appendNodeValue', 'Append Node:', 'targetNodeValue', 'appendValueButton', 'Add');
+const appendNodeValueForm = new FormGenerator('appendNodeValue', 'Append Node', 'targetNodeValue', 'appendValueButton', 'Add');
 const appendNodeValueFormElement = appendNodeValueForm.createFormSingleInput();
 
 const moveNodeValueForm = new FormGenerator(
     'movePositionForm',
-    'Node Value:',
+    'Node Value',
     'nodeValueInput',
     'movePositionButton',
     'Move position',
-    'Specify location',
+    'Specify position',
     'targetPositionInputId'
 );
 const moveNodeValueFormElement = moveNodeValueForm.createFormDoubleInput();
@@ -40,25 +43,30 @@ orderedArray.addEventListener('click', (event) => {
     arrayCreator.generateArrayOrdered(50);
     arrayCreator.renderArray("array-container");
     navContainer.append(searchLinearFormElement, searchBinaryFormElement);
-})
+});
 unOrderedArray.addEventListener('click', (event) =>{
     navContainer.innerHTML = '';
     listContainer.innerHTML = '';
     arrayCreator.generateArrayUnordered(50);
     arrayCreator.renderArray("array-container");
     navContainer.append(searchLinearFormElement, searchBinaryFormElement);
-})
+});
 
 linkedListSelector.addEventListener('click', (event) =>{
     navContainer.innerHTML = '';
     arrayContainer.innerHTML = '';
-    //linkedList.append(1);
     linkedList.displayLinkedList('list-container');
     navContainer.append(appendNodeValueFormElement, moveNodeValueFormElement);
-})
+});
+queueSelector.addEventListener('click', (event) => {
+    navContainer.innerHTML = '';
+    listContainer.innerHTML = '';
+    queue.enqueue(1);
+    queue.displayQueue('queue-container');
+});
 
 
-
+////////////////////////////////////////////////////////
 searchLinearFormElement.addEventListener('submit',  async (event) => {
     event.preventDefault();
     const targetInputLinear = document.getElementById('targetLinear');
@@ -90,14 +98,12 @@ moveNodeValueFormElement.addEventListener('submit',(event) => {
 
     try {
         linkedList.moveNode(nodeValue, targetPosition);
-        linkedList.displayLinkedList('list-container'); // Update the visual representation
+        linkedList.displayLinkedList('list-container');
 
-        // Optionally, display a success message to the user
         alert(`Node with value ${nodeValue} moved to position ${targetPosition}.`);
     } catch (error) {
         console.error(error.message);
 
-        // Display an error message to the user, e.g., using an alert or a modal
         alert(`Error moving node: ${error.message}`);
     }
     console.log(linkedList);

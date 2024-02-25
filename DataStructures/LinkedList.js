@@ -31,21 +31,44 @@ export class LinkedList{
             current = current.next;
         }
     }
+    deleteHead() {
+        if (!this.head) {
+            return null;
+        }
+
+        const deletedHead = this.head;
+
+        if (this.head.next) {
+            this.head = this.head.next;
+        } else {
+            this.head = null;
+        }
+
+        return deletedHead;
+    }
     displayLinkedList(containerId){
         const container = document.getElementById(containerId);
         container.innerHTML = '';
 
         let current = this.head;
+        let count = 0;
         while(current){
             const nodeDiv = document.createElement('div');
             const nodeDivNext = document.createElement('div');
             const nodeArrow = document.createElement('span');
+            const nodeCount = document.createElement('p');
             nodeArrow.className ='material-symbols-outlined';
             nodeArrow.textContent = 'arrow_right_alt';
             nodeDivNext.appendChild(nodeArrow);
             nodeDivNext.className = 'nodeNext';
             nodeDiv.textContent = current.data;
             nodeDiv.className = 'listNode';
+
+            nodeCount.className = 'nodeCount';
+            nodeCount.textContent = `pos${count}`
+            nodeDiv.appendChild(nodeCount);
+            count++;
+
             if(current === this.head){
                 const headPara = document.createElement('p');
                 headPara.className ='head-paragraph';
@@ -120,6 +143,6 @@ export class LinkedList{
             }
         }
 
-        this.displayLinkedList('list-container'); // Update DOM
+        this.displayLinkedList('list-container');
     }
 }
