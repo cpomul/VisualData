@@ -17,6 +17,7 @@ export class Queue{
     }
     enqueue(value) {
         this.linkedList.append(value);
+        console.log(this.linkedList)
     }
     dequeue() {
         const removedHead = this.linkedList.deleteHead();
@@ -31,10 +32,13 @@ export class Queue{
         container.innerHTML = '';
 
         let current = this.linkedList.head;
+        while(current){
+            const queueElement = document.createElement('div');
+            queueElement.className = 'queueElement';
+            queueElement.textContent = current.data;
+            container.append(queueElement);
 
-        const queueElement = document.createElement('div');
-        queueElement.className = 'queueElement';
-        queueElement.textContent = current.data;
-        container.append(queueElement);
+            current = current.next;
+        }
     }
 }

@@ -18,6 +18,9 @@ const arraySearch = new ArraySearch();
 const linkedList = new LinkedList();
 const queue = new Queue();
 
+const dequeueButton = document.createElement('Button');
+dequeueButton.className = 'dequeueButton';
+dequeueButton.textContent= "Dequeue";
 const searchLinearForm = new FormGenerator('searchLinear', 'Target', 'targetLinear', 'searchButtonLinear', 'SearchLinear');
 const searchLinearFormElement = searchLinearForm.createFormSingleInput();
 const searchBinaryForm = new FormGenerator('searchBinary', 'Target', 'targetBinary', 'searchButtonBinary', 'SearchBinary');
@@ -35,6 +38,9 @@ const moveNodeValueForm = new FormGenerator(
     'targetPositionInputId'
 );
 const moveNodeValueFormElement = moveNodeValueForm.createFormDoubleInput();
+
+const enqueueValueForm = new FormGenerator('enqueueValueForm', 'Enqueue Value', 'enqueueValueInput', 'enqueueButton', 'Enqueue');
+const enqueueValueFormElement = enqueueValueForm.createFormSingleInput();
 
 
 orderedArray.addEventListener('click', (event) => {
@@ -61,8 +67,7 @@ linkedListSelector.addEventListener('click', (event) =>{
 queueSelector.addEventListener('click', (event) => {
     navContainer.innerHTML = '';
     listContainer.innerHTML = '';
-    queue.enqueue(1);
-    queue.displayQueue('queue-container');
+    navContainer.append(enqueueValueFormElement, dequeueButton);
 });
 
 
@@ -108,4 +113,19 @@ moveNodeValueFormElement.addEventListener('submit',(event) => {
     }
     console.log(linkedList);
 });
+
+enqueueValueFormElement.addEventListener('submit', (event) =>{
+    event.preventDefault();
+
+    const enqueueValueInput = document.getElementById('enqueueValueInput');
+    const enqueueValue = parseInt(enqueueValueInput.value, 10);
+
+    queue.enqueue(enqueueValue);
+    queue.displayQueue("queue-container");
+});
+
+dequeueButton.addEventListener('click', () =>{
+    queue.dequeue();
+    queue.displayQueue('queue-container');
+})
 

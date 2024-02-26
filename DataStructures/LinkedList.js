@@ -85,10 +85,8 @@ export class LinkedList{
 
             anime({
                 targets: '#list-container',
-                translateY: 180,
                 opacity: [0,2],
                 easing: "easeOutExpo",
-                delay: anime.stagger(25),
             })
             current = current.next;
         }
