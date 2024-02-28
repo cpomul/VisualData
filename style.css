@@ -87,7 +87,8 @@ body {
 #searchLinear,
 #searchBinary,
 #appendNodeValue,
-#movePositionForm{
+#movePositionForm,
+#pushValueForm{
     margin-bottom: 20px;
 }
 
@@ -101,7 +102,8 @@ body {
 
 #targetBinary,
 #targetLinear,
-#targetNodeValue {
+#targetNodeValue,
+#pushValueInput{
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
@@ -110,7 +112,9 @@ body {
 #searchButtonBinary,
 #searchButtonLinear,
 #appendValueButton,
-#movePositionButton{
+#movePositionButton,
+#pushValueButton,
+.popStackButton{
     margin-top: 2px;
     width: 100%;
     padding: 10px;
@@ -176,10 +180,11 @@ body {
 .queueElement{
     width: 40px;
     height: 40px;
-    border: 1px solid black;
+    border: 2px solid black;
     border-radius: 100%;
     display: inline-flex;
     justify-content: center;
+    margin: 2px
 }
 #Container{
     display: flex;
@@ -191,10 +196,39 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+#enqueueButton{
+    margin-top: 2px;
+    width: 100%;
+    padding: 10px;
+    background-color: #3F72AF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
 .dequeueButton{
-    margin-top: 50px;
-    padding: 5px;
-    display: flex;
-    justify-content: center;
+    margin-top: 25px;
+    width: 100%;
+    padding: 10px;
+    background-color: #3F72AF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+#enqueueButton:hover, .dequeueButton:hover{
+    transform: scale(0.95);
+}
+#enqueueValueInput{
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.stack-item{
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    border: 1px solid black;
 }
 

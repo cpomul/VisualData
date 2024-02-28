@@ -4,19 +4,22 @@ import {ArraySearch} from "./Algorithms/ArraySearch.js";
 import {LinkedList} from "./DataStructures/LinkedList.js";
 import {FormGenerator} from "./DOMRenderer.js";
 import {Queue} from "./DataStructures/Queue.js"
+import {Stack} from "./DataStructures/Stack.js";
 
 const orderedArray = document.getElementById("orderedArray");
-const unOrderedArray = document.getElementById("unOrderedArray");
 const linkedListSelector = document.getElementById("linkedList");
 const queueSelector = document.getElementById("queue");
+const stackSelector = document.getElementById('stack');
 
 const listContainer = document.getElementById('list-container');
 const arrayContainer = document.getElementById("array-container");
 const navContainer = document.getElementById("navContainer");
+
 const arrayCreator = new ArrayCreator();
 const arraySearch = new ArraySearch();
 const linkedList = new LinkedList();
 const queue = new Queue();
+const stack = new Stack();
 
 const dequeueButton = document.createElement('Button');
 dequeueButton.className = 'dequeueButton';
@@ -42,6 +45,11 @@ const moveNodeValueFormElement = moveNodeValueForm.createFormDoubleInput();
 const enqueueValueForm = new FormGenerator('enqueueValueForm', 'Enqueue Value', 'enqueueValueInput', 'enqueueButton', 'Enqueue');
 const enqueueValueFormElement = enqueueValueForm.createFormSingleInput();
 
+const pushValueForm = new FormGenerator('pushValueForm', 'Push Value', 'pushValueInput', 'pushValueButton', 'Add');
+const pushValueFormElement = pushValueForm.createFormSingleInput();
+const popStackButton = document.createElement('button');
+popStackButton.className = 'popStackButton';
+popStackButton.textContent = 'Pop';
 
 orderedArray.addEventListener('click', (event) => {
     navContainer.innerHTML = '';
@@ -50,14 +58,6 @@ orderedArray.addEventListener('click', (event) => {
     arrayCreator.renderArray("array-container");
     navContainer.append(searchLinearFormElement, searchBinaryFormElement);
 });
-unOrderedArray.addEventListener('click', (event) =>{
-    navContainer.innerHTML = '';
-    listContainer.innerHTML = '';
-    arrayCreator.generateArrayUnordered(50);
-    arrayCreator.renderArray("array-container");
-    navContainer.append(searchLinearFormElement, searchBinaryFormElement);
-});
-
 linkedListSelector.addEventListener('click', (event) =>{
     navContainer.innerHTML = '';
     arrayContainer.innerHTML = '';
@@ -69,7 +69,11 @@ queueSelector.addEventListener('click', (event) => {
     listContainer.innerHTML = '';
     navContainer.append(enqueueValueFormElement, dequeueButton);
 });
-
+stackSelector.addEventListener('click', (event) => {
+    navContainer.innerHTML = '';
+    listContainer.innerHTML = '';
+    navContainer.append(pushValueFormElement, popStackButton);
+})
 
 ////////////////////////////////////////////////////////
 searchLinearFormElement.addEventListener('submit',  async (event) => {
@@ -128,4 +132,19 @@ dequeueButton.addEventListener('click', () =>{
     queue.dequeue();
     queue.displayQueue('queue-container');
 })
+
+pushValueFormElement.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const pushValueInput = document.getElementById('pushValueInput');
+    const pushValue = parseInt(pushValueInput.value, 10);
+
+    stack.push(pushValue);
+    stack.displayStack('stack-container');
+});
+popStackButton.addEventListener('click', () => {
+    stack.pop();
+    stack.displayStack('stack-container');
+});
+
 
