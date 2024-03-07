@@ -5,6 +5,13 @@ import {LinkedList} from "./DataStructures/LinkedList.js";
 import {FormGenerator} from "./DOMRenderer.js";
 import {Queue} from "./DataStructures/Queue.js"
 import {Stack} from "./DataStructures/Stack.js";
+import {HashTable} from "./DataStructures/HashTable.js";
+
+const hashtable = new HashTable();
+hashtable.set("age", 20);
+console.log(hashtable.get("age"));
+
+
 
 const orderedArray = document.getElementById("orderedArray");
 const linkedListSelector = document.getElementById("linkedList");
@@ -82,6 +89,7 @@ searchLinearFormElement.addEventListener('submit',  async (event) => {
     let targetValue = parseInt(targetInputLinear.value, 10);
     //clearStyles(arrayCreator.array);
     await arraySearch.linearSearch(arrayCreator.array, targetValue);
+    searchLinearFormElement.reset();
 })
 searchBinaryFormElement.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -89,6 +97,7 @@ searchBinaryFormElement.addEventListener('submit', async (event) => {
     let targetValue = parseInt(targetInputBinary.value, 10);
     //clearStyles(arrayCreator.array);
     await arraySearch.binarySearch(arrayCreator.array, targetValue);
+    searchLinearFormElement.reset();
 })
 appendNodeValueFormElement.addEventListener( 'submit', (event) => {
     event.preventDefault();
@@ -96,6 +105,7 @@ appendNodeValueFormElement.addEventListener( 'submit', (event) => {
     let targetValue = parseInt(targetNodeValue.value, 10);
     linkedList.append(targetValue);
     linkedList.displayLinkedList('list-container');
+    appendNodeValueFormElement.reset();
 })
 moveNodeValueFormElement.addEventListener('submit',(event) => {
     event.preventDefault();
@@ -105,17 +115,9 @@ moveNodeValueFormElement.addEventListener('submit',(event) => {
     const nodeValue = parseInt(nodeValueInput.value, 10);
     const targetPosition = parseInt(targetPositionInput.value, 10);
 
-    try {
-        linkedList.moveNode(nodeValue, targetPosition);
-        linkedList.displayLinkedList('list-container');
-
-        alert(`Node with value ${nodeValue} moved to position ${targetPosition}.`);
-    } catch (error) {
-        console.error(error.message);
-
-        alert(`Error moving node: ${error.message}`);
-    }
-    console.log(linkedList);
+    linkedList.moveNode(nodeValue, targetPosition);
+    linkedList.displayLinkedList('list-container');
+    moveNodeValueFormElement.reset();
 });
 
 enqueueValueFormElement.addEventListener('submit', (event) =>{
@@ -126,6 +128,7 @@ enqueueValueFormElement.addEventListener('submit', (event) =>{
 
     queue.enqueue(enqueueValue);
     queue.displayQueue("queue-container");
+    enqueueValueFormElement.reset();
 });
 
 dequeueButton.addEventListener('click', () =>{
@@ -141,6 +144,7 @@ pushValueFormElement.addEventListener('submit', (event) => {
 
     stack.push(pushValue);
     stack.displayStack('stack-container');
+    pushValueFormElement.reset();
 });
 popStackButton.addEventListener('click', () => {
     stack.pop();

@@ -31,22 +31,30 @@ body {
     border-bottom: 1.5px solid #DBE2EF;
     cursor: pointer;
     color: #DBE2EF;
-    transition: font-size ease-in-out .1s;
-    transform: translateZ(0);
-    will-change: transform;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out, font-size ease-in-out .1s;
+
 }
 
 #dataStructures > li:hover {
     border-bottom: 2px solid #3F72AF;
+    box-shadow: inset 150px 0 0 0 #3F72AF;
+    color: white;
     font-size: 20px;
 }
 
 #Title {
     color: #DBE2EF;
-    padding-left: 20px;
-    padding-top: 10px;
+    margin-top: 8px;
+    margin-left: 25px;
     font-size: 25px;
-    font-weight: 300;
+    font-weight: 400;
+}
+.copyRight{
+    margin-top: 14px;
+    margin-left: auto;
+    margin-right: 5px;
+    color: white;
+    font-size: 14px;
 }
 
 #array-container {
@@ -103,7 +111,9 @@ body {
 #targetBinary,
 #targetLinear,
 #targetNodeValue,
-#pushValueInput{
+#pushValueInput,
+#nodeValueInput,
+#targetPositionInputId{
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
@@ -127,7 +137,9 @@ body {
 #searchButtonBinary:hover,
 #searchButtonLinear:hover,
 #appendValueButton:hover,
-#movePositionButton:hover{
+#movePositionButton:hover,
+#pushValueButton:hover,
+.popStackButton:hover{
     transform: scale(0.95);
 }
 
@@ -226,7 +238,7 @@ body {
 }
 
 .stack-item{
-    width: 100px;
+    width: 200px;
     height: 25px;
     text-align: center;
     border: 1px solid black;
