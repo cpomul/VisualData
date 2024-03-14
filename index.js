@@ -21,6 +21,8 @@ const stackSelector = document.getElementById('stack');
 const listContainer = document.getElementById('list-container');
 const arrayContainer = document.getElementById("array-container");
 const navContainer = document.getElementById("navContainer");
+const queueContainer = document.getElementById("queue-container");
+const stackContainer = document.getElementById("stack-container");
 
 const arrayCreator = new ArrayCreator();
 const arraySearch = new ArraySearch();
@@ -61,6 +63,8 @@ popStackButton.textContent = 'Pop';
 orderedArray.addEventListener('click', (event) => {
     navContainer.innerHTML = '';
     listContainer.innerHTML = '';
+    stackContainer.innerHTML = '';
+    queueContainer.innerHTML = '';
     arrayCreator.generateArrayOrdered(50);
     arrayCreator.renderArray("array-container");
     navContainer.append(searchLinearFormElement, searchBinaryFormElement);
@@ -68,17 +72,23 @@ orderedArray.addEventListener('click', (event) => {
 linkedListSelector.addEventListener('click', (event) =>{
     navContainer.innerHTML = '';
     arrayContainer.innerHTML = '';
+    queueContainer.innerHTML = '';
+    stackContainer.innerHTML = '';
     linkedList.displayLinkedList('list-container');
     navContainer.append(appendNodeValueFormElement, moveNodeValueFormElement);
 });
 queueSelector.addEventListener('click', (event) => {
     navContainer.innerHTML = '';
     listContainer.innerHTML = '';
+    arrayContainer.innerHTML = '';
+    stackContainer.innerHTML = '';
     navContainer.append(enqueueValueFormElement, dequeueButton);
 });
 stackSelector.addEventListener('click', (event) => {
     navContainer.innerHTML = '';
     listContainer.innerHTML = '';
+    arrayContainer.innerHTML = '';
+    queueContainer.innerHTML = '';
     navContainer.append(pushValueFormElement, popStackButton);
 })
 
