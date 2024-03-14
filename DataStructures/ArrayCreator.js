@@ -19,13 +19,6 @@ export class ArrayCreator{
             box.className = 'array-item';
             box.textContent = element;
             container.appendChild(box);
-            anime({
-                targets: '.array-item',
-                translateY: 180,
-                opacity: [0,2],
-                easing: "easeOutExpo",
-                delay: anime.stagger(25),
-            })
         });
     }
 }
